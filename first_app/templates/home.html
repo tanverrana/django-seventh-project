@@ -12,8 +12,9 @@
 <body>
     {% load crispy_forms_tags %}
     <h1>This is home page</h1>
-    <div>
-        <form method="post">
+    <div style="width: 50%;margin:auto">
+        <form method="POST">
+            {% csrf_token %}
             {{form|crispy}}
             <input class="btn btn-primary" type="submit" value="Submit">
         </form>
