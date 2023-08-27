@@ -59,6 +59,7 @@ class Friend(models.Model):
     hw = models.CharField(max_length=50)
 
 
+# one to one relationship
 class Me(Friend):
     class Meta:
         proxy = True
@@ -79,3 +80,11 @@ class Passport(models.Model):
     pass_number = models.IntegerField()
     page = models.IntegerField()
     validity = models.IntegerField()
+
+
+# one to many relationship
+class Post(models.Model):
+    user = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True)
+    post_cap = models.CharField(max_length=30)
+    post_details = models.CharField(max_length=100)
+    created_at = models.DateTimeField()
