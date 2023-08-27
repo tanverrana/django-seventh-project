@@ -1,5 +1,5 @@
 from django.contrib import admin
-from first_app.models import StudentModel, StudentInfoModel, TeacherInfoModel, EmployeeModel, ManagerModel, Friend, Me
+from first_app.models import StudentModel, StudentInfoModel, TeacherInfoModel, EmployeeModel, ManagerModel, Friend, Me, Person, Passport
 # Register your models here.
 admin.site.register(StudentModel)
 # admin.site.register(StudentInfoModel)
@@ -29,3 +29,16 @@ class FriendModelAdmin(admin.ModelAdmin):
 class MeModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'school', 'section',
                     'attendence', 'hw']
+# this is for one to one relationship
+
+
+@admin.register(Person)
+class PersonModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'city',
+                    'email']
+
+
+@admin.register(Passport)
+class PassportModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'pass_number',
+                    'page', 'validity']

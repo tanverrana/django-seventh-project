@@ -63,3 +63,19 @@ class Me(Friend):
     class Meta:
         proxy = True
         ordering = ['id']
+
+
+class Person(models.Model):
+    name = models.CharField(max_length=30)
+    city = models.CharField(max_length=50)
+    email = models.EmailField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
+
+class Passport(models.Model):
+    user = models.OneToOneField(to=Person, on_delete=models.CASCADE)
+    pass_number = models.IntegerField()
+    page = models.IntegerField()
+    validity = models.IntegerField()
