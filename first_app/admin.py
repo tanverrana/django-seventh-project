@@ -1,5 +1,5 @@
 from django.contrib import admin
-from first_app.models import StudentModel, StudentInfoModel, TeacherInfoModel, EmployeeModel, ManagerModel
+from first_app.models import StudentModel, StudentInfoModel, TeacherInfoModel, EmployeeModel, ManagerModel, Friend, Me
 # Register your models here.
 admin.site.register(StudentModel)
 # admin.site.register(StudentInfoModel)
@@ -14,6 +14,18 @@ class EmployeeModelAdmin(admin.ModelAdmin):
 
 
 @admin.register(ManagerModel)
-class EmployeeModelAdmin(admin.ModelAdmin):
+class ManagerModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'city',
                     'designation', 'take_interview', 'hiring']
+
+
+@admin.register(Friend)
+class FriendModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'school', 'section',
+                    'attendence', 'hw']
+
+
+@admin.register(Me)
+class MeModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'school', 'section',
+                    'attendence', 'hw']
